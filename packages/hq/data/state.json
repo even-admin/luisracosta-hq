@@ -1,0 +1,204 @@
+{
+  "last_updated": "2026-04-02T06:14:00-06:00",
+  "articles": [
+    {
+      "id": 1,
+      "title": "La Carrera de la IA es un Ciclo",
+      "status": "published",
+      "version": "v3.1",
+      "url": "https://luisracosta.com/la-carrera-de-la-ia-es-un-ciclo.html",
+      "preview_url": "preview/la-carrera-de-la-ia-es-un-ciclo.html",
+      "words": 2100,
+      "summary": "Bitcoin cycle framework + Perplexity Computer como ganador del ciclo de agentes. Riesgos expandidos. Teaser a Art. 5.",
+      "file": "article-01-ciclo-v3.md"
+    },
+    {
+      "id": 2,
+      "title": "Cómo Construí Mi Sistema Operativo",
+      "status": "rewritten",
+      "version": "v2",
+      "url": "https://luisracosta.com/como-construi-mi-sistema-operativo.html",
+      "preview_url": "preview/como-construi-mi-sistema-operativo.html",
+      "words": 761,
+      "summary": "La operación interna de EVEN — Perplexity + Manus + Luis como equipo de 3. Reescrito con enfoque más personal.",
+      "notes": "Rewritten in prior session. Pending GitHub push."
+    },
+    {
+      "id": 3,
+      "title": "El Open Source Se Va a Comer al Closed Source",
+      "status": "rewriting",
+      "version": "v1 → v2",
+      "url": "https://luisracosta.com/el-open-source-se-va-a-comer-al-closed-source.html",
+      "preview_url": "preview/el-open-source-se-va-a-comer-al-closed-source.html",
+      "words": 749,
+      "summary": "Por qué open source gana en AI — DeepSeek, Llama, el patrón de Linux repitiéndose.",
+      "notes": "Research data gathered: MMLU gap closed to zero, coding gap remains (SWE-bench), DeepSeek V4 50x cheaper than Claude, open source market $35-56B. Rewrite in progress."
+    },
+    {
+      "id": 4,
+      "title": "Por Qué Construimos Diferente",
+      "status": "rewriting",
+      "version": "v1 → v2",
+      "url": "https://luisracosta.com/por-que-construimos-diferente.html",
+      "preview_url": "preview/por-que-construimos-diferente.html",
+      "words": 723,
+      "summary": "La filosofía de EVEN — construir diferente. Small-team economics + real cost data.",
+      "notes": "Research data gathered: AI-native agencies 60-80% cheaper, traditional redesign $42.5K vs AI-native $8-25K, solo founders 36.3%, 10-50x capital efficiency. Rewrite in progress."
+    },
+    {
+      "id": 5,
+      "title": "¿Los Gigantes Mandan?",
+      "status": "rewritten",
+      "version": "v2",
+      "url": null,
+      "preview_url": "preview/los-gigantes-mandan.html",
+      "words": 2067,
+      "subtitle": "Apple, el silencio calculado, y lo que viene en WWDC 2026",
+      "summary": "REWRITTEN: $650B capex spend across 5 giants, capital gravity thesis, each giant's AI strategy, 'context as leverage' closing. Pending GitHub push + approval."
+    },
+    {
+      "id": 6,
+      "title": "El OS que se Construye Solo",
+      "status": "pending_review",
+      "version": "v1",
+      "url": null,
+      "preview_url": "preview/el-os-que-se-construye-solo.html",
+      "words": 1951,
+      "subtitle": "Lifestyle OS y el futuro del software personal",
+      "summary": "Luis's Lifestyle OS vision — software that builds around you, not the other way around. Agentic onboarding, computer-person metric, the process over the product."
+    },
+    {
+      "id": 7,
+      "title": "La Paradoja del Modelo Abierto",
+      "status": "brief",
+      "version": "v0",
+      "url": null,
+      "preview_url": "preview/la-paradoja-del-modelo-abierto.html",
+      "words": 499,
+      "subtitle": "Open source vs. closed source en la carrera de la IA",
+      "summary": "La tensión entre open-source y closed-source AI. ¿Está destinado el open-source a siempre ir 6 meses detrás?"
+    },
+    {
+      "id": 8,
+      "title": "El Territorio Cambió",
+      "status": "rewritten",
+      "version": "v2",
+      "url": "https://luisracosta.com/el-territorio-cambio.html",
+      "preview_url": "preview/el-territorio-cambio.html",
+      "words": 1200,
+      "summary": "REWRITTEN: 280x inference cost drop, GPT-4 training cost data, solo founder stats (36.3%), Midjourney/Pieter Levels examples, Mérida-specific closing. Pending GitHub push."
+    },
+    {
+      "id": 9,
+      "title": "Caballos Salvajes",
+      "status": "published",
+      "version": "v1",
+      "url": "https://luisracosta.com/caballos-salvajes.html",
+      "preview_url": "preview/caballos-salvajes.html",
+      "words": 800,
+      "summary": "Origin piece. Pure story voice — Luis's personal narrative. Reviewed, stays as-is. No data treatment needed."
+    }
+  ],
+  "content_queue": [
+    {
+      "type": "github_push",
+      "title": "Push All Rewrites to GitHub",
+      "status": "pending",
+      "scheduled": null,
+      "description": "Push 4 rewritten articles to even-admin/luisramirez-site: los-gigantes-mandan, el-territorio-cambio, como-construi-mi-sistema-operativo, + 2 remaining rewrites once complete."
+    },
+    {
+      "type": "ig_stories",
+      "title": "Article Launch — IG Stories",
+      "status": "ready",
+      "scheduled": "2026-04-02T19:00:00-06:00",
+      "description": "2 stories: (1) Personal declaration + article tease, (2) Drop to financieros/analistas/empresarios with link to cycle article."
+    }
+  ],
+  "pipeline": {
+    "total_value": "$350K MXN",
+    "breakdown": [
+      {
+        "client": "Terra 58",
+        "contact": "JP (luisitoramac@gmail.com)",
+        "value": "$150K MXN",
+        "status": "awaiting_confirmation",
+        "notes": "Product brief PDF ready. WhatsApp message drafted. No response from JP this week — follow up Monday."
+      },
+      {
+        "client": "SETY",
+        "contact": "TBD",
+        "value": "$200K MXN (20 prospects × $10K)",
+        "status": "early_stage",
+        "notes": "20 prospective clients for Mérida event April 11-12. Registration form shared March 17."
+      }
+    ]
+  },
+  "clients": [
+    {
+      "name": "Dr. Ramírez",
+      "type": "retainer",
+      "value": "$12K/mes",
+      "status": "active",
+      "website": "https://drluisramirezlopez.com",
+      "notes": "GHL workflows deployed. Website live. Patient comms via WhatsApp only."
+    },
+    {
+      "name": "Servimueble",
+      "type": "retainer",
+      "value": "$12K/mes",
+      "status": "active",
+      "notes": "Active retainer. Running steady."
+    },
+    {
+      "name": "WKS",
+      "type": "project",
+      "value": "TBD",
+      "status": "proposal_sent",
+      "notes": "Auditoría + propuesta + concepto web sent March 25. Awaiting response."
+    }
+  ],
+  "ideas": [
+    {
+      "title": "Lifestyle OS / Vibe OS",
+      "status": "developing",
+      "summary": "Agentic OS that builds itself around you. Onboarding → agents collect data → optimize all life areas. Target: young entrepreneurs, tech-savvy CEOs. Model: build the PROCESS for agents to build your OS, not the software itself. Computer-person metric as the next paradigm.",
+      "origin": "Luis voice note, April 1 2026",
+      "has_article": true,
+      "article_id": 6
+    }
+  ],
+  "team": {
+    "members": [
+      {"name": "Luis", "role": "CEO / Director", "tag": "[L]"},
+      {"name": "Perplexity Computer", "role": "Researcher, Analyst, Writer, Programmer", "tag": "[P]"},
+      {"name": "Manus", "role": "Database, Backend Ops", "tag": "[M]"}
+    ],
+    "slack_channel": "#all-agentic-comunications-department"
+  },
+  "key_dates": [
+    {"date": "2026-04-02", "event": "IG Stories Launch (7pm scroll time)"},
+    {"date": "2026-04-11", "event": "Mérida Event Day 1 (SETY)"},
+    {"date": "2026-04-12", "event": "Mérida Event Day 2 (SETY)"},
+    {"date": "2026-05-01", "event": "Dubai Trip Start"},
+    {"date": "2026-05-04", "event": "Dubai Trip End"},
+    {"date": "2026-06-08", "event": "Apple WWDC 2026"}
+  ],
+  "progress_log": [
+    {
+      "date": "2026-04-01",
+      "agent": "[P]",
+      "entries": [
+        "Tone audit completed — 9 articles reviewed against writing guide, 6 clean, 3 flagged",
+        "Los Gigantes Mandan — REWRITTEN with $650B capex data, 5 giants' strategies, capital gravity thesis",
+        "El Territorio Cambió — REWRITTEN with 280x cost drop, solo founder data, hardware efficiency stats",
+        "Caballos Salvajes — Reviewed, stays as-is (origin piece, pure story voice)",
+        "Research data gathered for El Open Source + Por Qué Construimos Diferente",
+        "Terra 58 product brief PDF finalized, WhatsApp message drafted for JP",
+        "Mission Control HQ redesigned — black and white, matching luisracosta.com",
+        "Monday briefing cron active",
+        "HQ updated: Activity Log, article statuses, read links, preview system for all articles"
+      ]
+    }
+  ]
+}

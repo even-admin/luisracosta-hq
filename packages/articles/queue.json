@@ -1,0 +1,78 @@
+{
+  "last_updated": "2026-04-04",
+  "articles": [
+    {
+      "id": 1,
+      "title": "La Carrera de la IA es un Ciclo",
+      "status": "published",
+      "version": "v3.1",
+      "file": "published/01-la-carrera-de-la-ia-es-un-ciclo.md",
+      "url": "https://luisracosta.com/la-carrera-de-la-ia-es-un-ciclo.html",
+      "words": 2100
+    },
+    {
+      "id": 2,
+      "title": "Cómo Construí Mi Sistema Operativo",
+      "status": "published",
+      "version": "v2",
+      "file": "published/02-como-construi-mi-sistema-operativo.md",
+      "url": "https://luisracosta.com/como-construi-mi-sistema-operativo.html",
+      "words": 761
+    },
+    {
+      "id": 3,
+      "title": "El Open Source Se Va a Comer al Closed Source",
+      "status": "rewriting",
+      "version": "v1 → v2",
+      "file": "drafts/03-el-open-source-se-va-a-comer-al-closed-source.md",
+      "notes": "Research data: MMLU gap zero, coding gap remains, DeepSeek V4 50x cheaper, open source market $35-56B"
+    },
+    {
+      "id": 4,
+      "title": "Por Qué Construimos Diferente",
+      "status": "rewriting",
+      "version": "v1 → v2",
+      "file": "drafts/04-por-que-construimos-diferente.md",
+      "notes": "Research data: AI-native 60-80% cheaper, traditional $42.5K vs AI-native $8-25K, solo founders 36.3%"
+    },
+    {
+      "id": 5,
+      "title": "¿Los Gigantes Mandan?",
+      "status": "published",
+      "version": "v2",
+      "file": "published/05-los-gigantes-mandan.md",
+      "words": 2067,
+      "notes": "Pending GitHub push"
+    },
+    {
+      "id": 6,
+      "title": "El OS que se Construye Solo",
+      "status": "published",
+      "version": "v1",
+      "file": "published/06-el-os-que-se-construye-solo.md",
+      "words": 1951
+    },
+    {
+      "id": 7,
+      "title": "La Paradoja del Modelo Abierto",
+      "status": "brief",
+      "version": "v0",
+      "file": "drafts/07-la-paradoja-del-modelo-abierto.md",
+      "words": 499
+    },
+    {
+      "id": "essay-1",
+      "title": "Caballos Salvajes",
+      "status": "published",
+      "version": "final",
+      "file": "published/essay-caballos-salvajes.md"
+    },
+    {
+      "id": "essay-2",
+      "title": "El Territorio del Cómputo",
+      "status": "published",
+      "version": "final",
+      "file": "published/essay-territorio-computo.md"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "luisracosta-hq",
+  "mission": "Build and maintain Luis Alberto Ramírez Acosta's digital ecosystem — personal brand, content authority, and operational intelligence dashboard. Every artifact should reinforce Luis's position as an AI-native technical co-founder serving Mexico/LatAm.",
+  "goals": [
+    "Publish and maintain luisracosta.com as a world-class personal authority site",
+    "Keep Mission Control HQ updated as the real-time operational dashboard",
+    "Produce one high-quality article per week (research-backed, Luis's voice)",
+    "Prepare newsletter infrastructure for launch",
+    "Maintain knowledge base as the single source of truth about Luis and EVEN"
+  ],
+  "budget": {
+    "monthly_cap_usd": 200,
+    "model": "claude-sonnet-4",
+    "notes": "Claude Max subscription. Budget is shared across all agents in this company. Perplexity Computer operates outside this budget."
+  },
+  "board": [
+    {
+      "name": "Luis Alberto Ramírez Acosta",
+      "role": "Founder / Board",
+      "contact": "WhatsApp, Slack #all-agentic-comunications-department"
+    }
+  ],
+  "created": "2026-04-04",
+  "version": "1.0"
+}

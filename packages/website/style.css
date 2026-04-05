@@ -1,0 +1,632 @@
+/* ============================================
+   Luis Ramirez — Personal Site
+   Dark-first, typography-driven, minimalist
+   ============================================ */
+
+/* --- Fonts --- */
+/* Instrument Serif for display (name), Satoshi for body */
+
+/* --- Design Tokens --- */
+:root {
+  /* Type Scale */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* Spacing (4px base) */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* Transition */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Content widths */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1200px;
+
+  /* Font families */
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Satoshi', 'Inter', sans-serif;
+}
+
+/* --- DARK MODE (default) --- */
+:root, [data-theme="dark"] {
+  --color-bg:             #0A0A0A;
+  --color-surface:        #111111;
+  --color-surface-2:      #161616;
+  --color-surface-offset: #0E0E0E;
+  --color-divider:        #1E1E1E;
+  --color-border:         #2A2A2A;
+
+  --color-text:           #E8E6E3;
+  --color-text-muted:     #8A8885;
+  --color-text-faint:     #555350;
+
+  --color-primary:        #E8E6E3;
+  --color-primary-hover:  #FFFFFF;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.5);
+}
+
+/* --- LIGHT MODE --- */
+[data-theme="light"] {
+  --color-bg:             #FAFAF8;
+  --color-surface:        #F3F2EE;
+  --color-surface-2:      #EEEDEA;
+  --color-surface-offset: #F6F5F2;
+  --color-divider:        #E0DFDB;
+  --color-border:         #D4D3CE;
+
+  --color-text:           #1A1A18;
+  --color-text-muted:     #6E6D6A;
+  --color-text-faint:     #A8A7A3;
+
+  --color-primary:        #1A1A18;
+  --color-primary-hover:  #000000;
+
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+/* System preference fallback */
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --color-bg:             #FAFAF8;
+    --color-surface:        #F3F2EE;
+    --color-surface-2:      #EEEDEA;
+    --color-surface-offset: #F6F5F2;
+    --color-divider:        #E0DFDB;
+    --color-border:         #D4D3CE;
+    --color-text:           #1A1A18;
+    --color-text-muted:     #6E6D6A;
+    --color-text-faint:     #A8A7A3;
+    --color-primary:        #1A1A18;
+    --color-primary-hover:  #000000;
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+  }
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.site-wrapper {
+  max-width: var(--content-default);
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .site-wrapper {
+    padding-inline: var(--space-10);
+  }
+}
+
+/* ============================================
+   Header / Nav
+   ============================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: oklch(from var(--color-bg) l c h / 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3.5rem;
+  max-width: var(--content-default);
+  margin: 0 auto;
+  padding-inline: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .header-inner {
+    padding-inline: var(--space-10);
+  }
+}
+
+.header-spacer {
+  width: 24px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.header-nav a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+
+.header-nav a:hover {
+  color: var(--color-text);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-text-muted);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-interactive),
+              background var(--transition-interactive);
+}
+
+.theme-toggle:hover {
+  color: var(--color-text);
+  background: var(--color-surface);
+}
+
+/* ============================================
+   Hero Section
+   ============================================ */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 70vh;
+  padding-block: clamp(var(--space-16), 10vw, var(--space-32));
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero-line {
+  width: 3rem;
+  height: 1px;
+  background: var(--color-divider);
+  margin-top: var(--space-10);
+}
+
+/* ============================================
+   Section Common
+   ============================================ */
+
+.section {
+  padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+  border-top: 1px solid var(--color-divider);
+}
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+  margin-bottom: var(--space-8);
+}
+
+/* ============================================
+   What I Do
+   ============================================ */
+
+.what-i-do-text {
+  font-size: var(--text-lg);
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text);
+  max-width: 60ch;
+}
+
+.what-i-do-text a {
+  color: var(--color-text);
+  text-decoration-color: var(--color-text-faint);
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.what-i-do-text a:hover {
+  text-decoration-color: var(--color-text);
+}
+
+/* ============================================
+   Thinking (Blog Index)
+   ============================================ */
+
+.thinking-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.thinking-item {
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-divider);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.thinking-item:first-child {
+  padding-top: 0;
+}
+
+.thinking-item:last-child {
+  border-bottom: none;
+}
+
+.thinking-title {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  line-height: 1.4;
+  cursor: default;
+}
+
+.thinking-date {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============================================
+   Elsewhere
+   ============================================ */
+
+.elsewhere-links {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.elsewhere-link {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color var(--transition-interactive);
+}
+
+.elsewhere-link:hover {
+  color: var(--color-text);
+}
+
+/* ============================================
+   Contact
+   ============================================ */
+
+.contact-email {
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  color: var(--color-text);
+  text-decoration: none;
+  text-decoration-color: var(--color-text-faint);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+.contact-email:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-text);
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+
+.site-footer {
+  border-top: 1px solid var(--color-divider);
+  padding-block: var(--space-8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.footer-text {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+.footer-text a {
+  color: var(--color-text-faint);
+  text-decoration: none;
+}
+
+.footer-text a:hover {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   Scroll Fade-In Animations (CSS-native)
+   ============================================ */
+
+/* JS-driven fade-in: starts invisible, JS adds .is-visible on scroll */
+.fade-in {
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+}
+
+/* Staggered fade for children */
+.stagger-children > * {
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-children.is-visible > * {
+  opacity: 1;
+}
+
+.stagger-children.is-visible > *:nth-child(1) { transition-delay: 0s; }
+.stagger-children.is-visible > *:nth-child(2) { transition-delay: 0.06s; }
+.stagger-children.is-visible > *:nth-child(3) { transition-delay: 0.12s; }
+.stagger-children.is-visible > *:nth-child(4) { transition-delay: 0.18s; }
+.stagger-children.is-visible > *:nth-child(5) { transition-delay: 0.24s; }
+.stagger-children.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
+
+/* No-JS fallback: show everything */
+@media (scripting: none) {
+  .fade-in,
+  .stagger-children > * {
+    opacity: 1 !important;
+  }
+}
+
+/* Hero animations — on load, not scroll-driven */
+.hero-enter {
+  opacity: 0;
+  animation: hero-fade-in 0.8s var(--ease-out) forwards;
+}
+
+.hero-enter-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.hero-enter-delay-2 {
+  animation-delay: 0.35s;
+}
+
+.hero-enter-delay-3 {
+  animation-delay: 0.55s;
+}
+
+@keyframes hero-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================
+   Back Link (article pages)
+   ============================================ */
+
+.back-link {
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color var(--transition-interactive);
+}
+
+.back-link:hover {
+  color: var(--color-text);
+}
+
+/* ============================================
+   Article Page
+   ============================================ */
+
+.article {
+  padding-block: clamp(var(--space-16), 10vw, var(--space-32)) clamp(var(--space-12), 8vw, var(--space-24));
+}
+
+.article-header {
+  margin-bottom: var(--space-12);
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: var(--space-4);
+}
+
+.article-meta {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.article-body {
+  max-width: 60ch;
+}
+
+.article-body p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.article-body hr {
+  border: none;
+  border-top: 1px solid var(--color-divider);
+  margin-block: var(--space-12);
+}
+
+.article-body h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+}
+
+.article-sign {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-top: var(--space-12);
+}
+
+/* ============================================
+   Article Tables
+   ============================================ */
+
+.table-wrapper {
+  overflow-x: auto;
+  margin-block: var(--space-8);
+  -webkit-overflow-scrolling: touch;
+}
+
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.article-body thead th {
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-text);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.article-body tbody td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-divider);
+  color: var(--color-text-muted);
+  vertical-align: top;
+}
+
+.article-body tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.article-body tbody td:first-child {
+  color: var(--color-text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ============================================
+   Thinking — clickable items
+   ============================================ */
+
+a.thinking-item {
+  text-decoration: none;
+  transition: background var(--transition-interactive);
+  border-radius: var(--radius-sm);
+  margin-inline: calc(var(--space-3) * -1);
+  padding-inline: var(--space-3);
+}
+
+a.thinking-item:hover {
+  background: var(--color-surface);
+}
+
+a.thinking-item .thinking-title {
+  cursor: pointer;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 55vh;
+    padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+  }
+
+  .header-nav {
+    gap: var(--space-4);
+  }
+
+  .elsewhere-links {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
