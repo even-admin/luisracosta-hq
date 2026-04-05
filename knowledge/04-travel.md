@@ -1,15 +1,22 @@
 # Viajes
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
 
 ---
 
-## Próximo viaje: Porto, Portugal
+## Próximos viajes
 
-- Volando con Aeromexico
-- **Alerta:** Los emails de Aeromexico a veces van a spam. Monitorear activamente.
-- Fecha exacta: pendiente de confirmar
-- Detalles de vuelo: pendiente
+| Fecha | Destino | Detalle |
+|-------|---------|---------|
+| Abril 11-12 | Mérida | Evento local |
+| Mayo 28 | Porto, Portugal | 17 días. Aeromexico. Monitorear emails (a veces van a spam). |
+| Junio 8-12 | Apple WWDC | Cupertino/San José, CA |
+
+---
+
+## Cancelados
+
+- **Dubai (Mayo 1-4):** CANCELADO.
 
 ---
 

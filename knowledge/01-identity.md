@@ -1,6 +1,6 @@
 # Quién Soy
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
 
 ---
 
@@ -24,7 +24,9 @@ Valoro la profundidad sobre la velocidad. Pero cuando es hora de ejecutar, ejecu
 
 ## Cómo me comunico
 
-- **Todo por WhatsApp.** No email, no Slack. WhatsApp es el canal para todo.
+- **Con clientes: WhatsApp.** Canal primario para toda comunicación con clientes.
+- **Internamente:** Trabajo con Perplexity Computer ([P]) como mi mano derecha — estrategia, research, contenido, operaciones. Claude Code maneja desarrollo. Paperclip es el dashboard HQ.
+- **Slack:** Comunicación agente-a-agente (#all-agentic-comunications-department).
 - Mensajes cortos, directos. "Oye," "Va," "Sale," "Listo." Sin formalidades.
 - Español mexicano natural. Hablo como platico. "Me dio por investigar." "Lo que más me pegó."
 - Si algo está bien, digo poco. Si algo no me cuadra, soy directo.

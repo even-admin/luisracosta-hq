@@ -1,6 +1,6 @@
 # EVEN Venture Studio
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
 
 ---
 
@@ -15,13 +15,25 @@ Venture studio en Mérida, Yucatán. Operamos como Fractional Technical Co-Found
 
 ---
 
-## El equipo
+## El equipo (realidad actual)
+
+EVEN está en reestructura. Luis es CEO y el operador principal.
 
 | Rol | Persona | Qué hace |
 |-----|---------|----------|
-| CEO & AI Orchestrator | Luis Ramirez Acosta | Estrategia, arquitectura, sistemas de IA, relaciones con clientes, contenido |
-| Head of Product | Diego | Gestión de producto, manejo de relaciones con clientes (especialmente Terra 58/JP), ejecución diaria |
-| Creative Director | Gabriel | Diseño visual, identidad de marca, dirección creativa |
+| CEO & operador principal | Luis Ramirez Acosta | Estrategia, arquitectura, sistemas de IA, relaciones con clientes, contenido, ejecución |
+| Cuenta independiente | Diego | Gestiona Servimueble de forma independiente (su cuenta) |
+| Rol menos activo | Gabriel | Dirección creativa — participación reducida actualmente |
+
+---
+
+## Shift estratégico
+
+EVEN sigue existiendo como entidad para delivery y validación de servicios. Pero el verdadero potencial de Luis es la **marca personal + servicios especializados**. **Firma23** es la visión holding.
+
+Luis vende a través de EVEN, pero el trabajo es realmente él.
+
+Si Luis recibe una oferta de equity como technical co-founder, eso es una carrera personal — separado de EVEN.
 
 ---
 
@@ -40,6 +52,17 @@ Loop de ingeniería estricto:
 
 ---
 
+## Ejecución actual
+
+| Rol | Quién |
+|-----|-------|
+| Estratega / operador | [P] Perplexity |
+| Builder / hands | Claude Code |
+| HQ / orquestación | Paperclip |
+| Board / aprobador | Luis |
+
+---
+
 ## Dos tracks de servicio
 
 | Track | Rango | Qué incluye |
@@ -54,7 +77,7 @@ Loop de ingeniería estricto:
 - **Tecnología aburrida** sobre herramientas brillantes. Lo probado gana.
 - **Velocidad** sobre perfección. Shippear primero, pulir después.
 - **Fundamentos primero, automatización después.** No metas un chatbot si no tienes un sitio web funcional.
-- **Ecosistemas abiertos** sobre plataformas cerradas. Nos estamos moviendo lejos de GoHighLevel por esto.
+- **Ecosistemas abiertos** sobre plataformas cerradas.
 - **AI-native.** Todo lo que construimos piensa en IA desde el día uno.
 
 ---
@@ -67,10 +90,3 @@ La estrategia de contenido de EVEN para posicionarnos como autoridad en Mérida:
 - Target: Dueños de negocios en Mérida
 - Contenido: Casos de uso de IA, estudios de caso
 - Objetivo: Convertir confianza en contratos
-- Ejecutor: Gabriel (Creative Director) con dirección de Luis
-
----
-
-## SETY Alliance
-
-Acuerdo firmado para digitalizar 200+ negocios en Yucatán en 2026. Cada negocio es un cliente potencial para EVEN. Pipeline masivo.

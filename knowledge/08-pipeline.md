@@ -1,6 +1,18 @@
 # Pipeline y Prospectos
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
+
+---
+
+## Resumen
+
+| Deal | Valor | Status |
+|------|-------|--------|
+| Terra 58 | $150,000 MXN | Esperando confirmación de JP |
+| SETY | $200,000 MXN | EN HOLD — no iniciado |
+| VORSA | Desconocido | Conversaciones tempranas |
+| Casasús | Desconocido | Conversaciones tempranas |
+| **Total calificado** | **$350,000 MXN** | Terra 58 + SETY |
 
 ---
 
@@ -9,12 +21,27 @@ Last updated: March 16, 2026
 | Campo | Detalle |
 |-------|---------|
 | Valor | $150,000 MXN |
-| Status | Cotización enviada, esperando confirmación de JP |
-| Contacto clave | JP (a través de luisitoramac@gmail.com) |
-| Quién lo maneja | Diego (Head of Product) maneja la relación con JP |
-| Nota | Lo más probable es que me entere de la confirmación a través de Diego, no directamente de JP |
+| Status | Esperando confirmación de JP. Sin email de JP esta semana. |
+| Contacto clave | JP |
+| Rol de Luis | Technical co-founder |
+| Nota | JP es mayor que Luis — comunicar con respeto |
 
-**Acción:** Monitorear pero no intervenir. Diego tiene el control.
+**Arquitectura:** Sistema de 2 motores:
+1. CRM + automatización WhatsApp
+2. Portal de inversionistas
+
+**CRM:** Evaluando HubSpot sobre GHL para Terra 58.
+
+**Documentación:** Product brief completo creado.
+
+---
+
+## SETY — $200,000 MXN potencial
+
+| Campo | Detalle |
+|-------|---------|
+| Valor potencial | $200,000 MXN (20 prospectos × $10K c/u) |
+| Status | EN HOLD — no iniciado outreach |
 
 ---
 
@@ -22,11 +49,8 @@ Last updated: March 16, 2026
 
 | Campo | Detalle |
 |-------|---------|
-| Status | Conversaciones iniciales. Sin contrato. |
-| Valor | Desconocido |
-| Mi directiva | "No podemos gastar mucho tiempo o recursos hasta asegurar contrato." |
-
-**Acción:** No invertir tiempo. Tocar el tema más adelante cuando haya contrato.
+| Status | Conversaciones tempranas, sin contrato |
+| Directiva | No invertir tiempo ni recursos hasta asegurar contrato |
 
 ---
 
@@ -34,18 +58,8 @@ Last updated: March 16, 2026
 
 | Campo | Detalle |
 |-------|---------|
-| Status | Conversaciones iniciales |
+| Status | Conversaciones tempranas |
 | Detalle | Información limitada por ahora |
-
----
-
-## SETY Alliance
-
-| Campo | Detalle |
-|-------|---------|
-| Qué es | Acuerdo firmado para digitalizar 200+ negocios en Yucatán en 2026 |
-| Status | Acuerdo activo, ejecución en progreso |
-| Significancia | Pipeline masivo — cada negocio es un cliente potencial para EVEN |
 
 ---
 
@@ -54,5 +68,4 @@ Last updated: March 16, 2026
 | Campo | Detalle |
 |-------|---------|
 | Qué es | Super app proptech para México |
-| Status | En standby. No activo actualmente. |
-| Nota | Es mi propio venture, no un proyecto de cliente |
+| Status | En standby. No activo. Es un venture personal de Luis, no cliente. |

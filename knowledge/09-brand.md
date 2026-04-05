@@ -1,6 +1,6 @@
 # Marca Personal
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
 
 ---
 
@@ -82,21 +82,50 @@ Si parece que estoy pensando en voz alta, está bien.
 
 ---
 
+## fold.mx
+
+**Status:** PARCIALMENTE LIVE
+
+**Regla:** siempre "fold" en minúsculas — nunca "FOLD".
+
+**Diseño:**
+- Blanco y negro total
+- Mismas fuentes y estilos que luisracosta.com
+- Solo imágenes reales — cero IA generativa
+- Sección principal: noticias de Mérida/Yucatán obligatorio
+- Estilo: Forbes meets marca personal de Luis, con un poco de Apple encima
+
+**Activos creados:**
+- Branding completo: logo system (institucional completo, marcas, lockups en B&W)
+- Contenido IG: 11+ pares cover/deepdive + carruseles de validación
+- Captions escritos
+- Tweets semana 1 y semana 2 en draft
+
+---
+
 ## Contenido publicado / en pipeline
 
-### X/Twitter (listos):
-- 10 tweets individuales + 1 hilo de 8 partes sobre computación agéntica
+### X/Twitter:
+- 10 tweets individuales drafteados
+- Positioning doc creado
+- Writing guide creado
 - Tweet fijado: "La computadora personal va a cambiar más en los próximos 3 años que en los últimos 20..."
 
 ### Ensayos (Substack):
 | Pieza | Status |
 |-------|--------|
-| Caballos Salvajes | Draft final |
-| El Territorio Cambió (Territorio y Cómputo) | Draft final |
+| Caballos Salvajes | Draft completo |
+| Territorio y Cómputo | Draft completo |
 | IA: Tu Nuevo Electrodoméstico | Concepto |
 | Mi Stack de IA | Idea |
 | El Búfalo y la Tormenta | Idea |
 | El Teniente | Idea |
+
+### Artículos (series):
+| Artículo | Status |
+|----------|--------|
+| article-01-thesis-analysis | Lanzado |
+| article-05-gigantes-brief | En queue |
 
 ### LinkedIn:
 - 3 posts drafted — IA en negocios tradicionales
@@ -111,6 +140,12 @@ Si parece que estoy pensando en voz alta, está bien.
 | LinkedIn | Secundaria. Más profesional, misma voz. | Español mexicano |
 | Substack | Long-form. Donde vive el pensamiento profundo. | Español mexicano |
 | Instagram | Contenido de EVEN (Phase 3). No personal. | Español mexicano |
+
+---
+
+## IG Stories
+
+Sin venta. "No selly shit." Las stories no venden — son presencia, no pitch.
 
 ---
 

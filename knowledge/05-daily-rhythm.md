@@ -1,6 +1,6 @@
 # Ritmo Diario
 
-Last updated: March 16, 2026
+Last updated: April 5, 2026
 
 ---
 
@@ -8,15 +8,26 @@ Last updated: March 16, 2026
 
 | Hora | Qué pasa |
 |------|----------|
-| 5:00 AM | Despertar, rutina matutina |
-| 6:15 AM | Gym / entrenamiento |
-| ~8:30 AM | Transición, desayuno |
+| 5:00 AM | Rutina matutina: oración, Biblia, electrolitos, café, compresas calientes, lectura, movilidad de hombro |
+| 6:15 AM | Gym |
+| 8:00 AM | Primera comida (2 huevos + fruta) |
+| 8:40 AM | Traslado a oficina (llega 9 AM en punto) |
 | 9:00 AM – 1:00 PM | **Bloque de trabajo 1** (trabajo profundo) |
-| 1:00 PM – 2:00 PM | Comida |
+| 1:00 PM | Comida (macros: 60%P / 20%C / 20%F) |
 | 2:00 PM – 3:30 PM | Fisioterapia (fijo, no se mueve) |
 | 3:30 PM – 7:00 PM | **Bloque de trabajo 2** |
-| 7:00 PM en adelante | Familia, descanso |
-| 10:00 PM | Dormir |
+| 7:00 PM | Shake (cena) |
+| 8:00 PM | En cama |
+| 10:00 PM | Dormido |
+
+**Nota:** Los bloques de entreno en el calendario van VACÍOS. El entrenamiento se gestiona en TrainingPeaks, no en calendario.
+
+---
+
+## Infraestructura de trabajo
+
+- **Mac Mini en oficina:** servidor siempre encendido — corre Paperclip HQ.
+- **Laptop:** trabajo móvil.
 
 ---
 
