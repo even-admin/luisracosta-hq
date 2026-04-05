@@ -158,41 +158,67 @@ Keep the same design system (Instrument Serif + Satoshi, B&W, minimal editorial)
 
 ### 1. HERO (update existing header)
 Keep: "Luis Alberto Ramirez Acosta" in Instrument Serif.
-Change tagline to: "I build AI-powered systems for businesses. Fractional CTO. Mérida, MX."
-Add one line below in muted: "CEO @ EVEN Venture Studio — turning local businesses into AI-native operations."
+Tagline: "Fractional CTO. AI-native builder. Mérida, MX."
+One line muted: "Founder @ EVEN Venture Studio"
 
-### 2. WHAT I DO (rewrite)
-Replace current paragraph with 3 clear service cards in a row:
-- **AI Systems** — "Custom automation, CRM integration, agent orchestration for your business."
-- **Fractional CTO** — "Technical leadership on demand. Architecture, stack, team, ship."
-- **Digital Transformation** — "From zero digital presence to a full operating system. Website, booking, follow-ups, reviews."
+Not a sales pitch. Just who he is. The rest of the page proves it.
 
-Each card: white background, subtle border, rounded-2xl, no shadow. Same card style as HQ.
+### 2. BACKGROUND (replaces "What I Do")
+Heading: "Background" in Instrument Serif.
 
-### 3. CASE STUDY (new section)
-Heading: "Proof" in Instrument Serif.
-One featured case study card (placeholder until real data arrives):
-- Client: "Neurosurgery Practice — Mérida"
-- Challenge: "Zero digital presence. All patients via word-of-mouth."
-- What we built: "Professional website, automated appointment booking, patient follow-up system, Google review collection."
-- Result: "[Results coming — placeholder for now]"
-- Visual: simple before/after layout or a clean quote card
+This is NOT a portfolio of little client deployments. This is a credential section that shows who Luis IS.
 
-This section will be updated once we have real metrics from Dr. Ramírez.
+Two columns or a clean structured layout:
 
-### 4. STACK (new section)
-Heading: "Stack" in Instrument Serif.
-Show the tools/tech Luis works with. Simple grid of small cards or a clean list:
-- Perplexity AI — Strategy & Intelligence
-- Claude / Claude Code — Development
-- React + Next.js + Tailwind — Frontend
-- Supabase / PostgreSQL — Backend
-- GoHighLevel — Client CRM & Automation
-- HubSpot — Pipeline Management
-- GitHub — Version Control & CI/CD
-- Paperclip — Agent Orchestration
+**Education & Training:**
+- Programación y Transformación Digital — EBC (current)
+- Design Thinking certification
+- Human-Centered System Design
 
-Clean, minimal. No logos needed. Just text in a grid. Muted descriptions.
+**Work:**
+- Founder, EVEN Venture Studio — evenai.co
+- Fractional CTO for capital-backed founders and business families in México
+- AI-native operations: one operator + AI = output of a 5-8 person team
+
+Keep it minimal. No bullet-point soup. Clean typography, Instrument Serif for labels, Satoshi for details.
+
+### 3. THE SETUP (replaces generic "Stack" section)
+Heading: "The Setup" in Instrument Serif.
+Subtext in muted: "This is how I operate."
+
+This IS the case study. Show the actual working environment and workflow:
+
+**Hardware:**
+- Mac Mini (office) — always-on server, runs orchestration
+- MacBook Pro (mobile) — development on the go
+- iPhone × 2 — WhatsApp client comms, monitoring
+
+**AI Layer:**
+- Perplexity — strategy, research, intelligence, operations
+- Claude + Claude Code — builds and ships code
+- Paperclip — agent orchestration and project management
+
+**Dev Stack:**
+- React / Next.js / Tailwind / shadcn
+- Python
+- Supabase / PostgreSQL
+- GitHub (even-admin)
+
+**Client Ops:**
+- GoHighLevel — CRM & automation for clients
+- HubSpot — pipeline management
+- Google Workspace — professional email + Meet
+
+Design this like a clean equipment list or a "what's in my bag" section. White cards, subtle borders, no shadows. Think Apple product page meets editorial layout. NOT a boring tool grid — make it feel like opening someone's actual workspace.
+
+### 4. EVEN (new section — links to proof)
+Heading: "EVEN" in Instrument Serif.
+One clean card or block:
+- "Venture studio in Mérida. Fractional Technical Co-Founder as a Service."
+- Link: evenai.co
+- Note in muted: "Portfolio, methodology, and client work live here."
+
+EVEN is where the portfolio lives. Luis's personal site is about HIM — his thinking, his setup, his credentials. EVEN handles the project showcasing. Don't duplicate it.
 
 ### 5. THINKING (fix existing)
 The current article titles aren't linked. Fix them:
