@@ -88,7 +88,7 @@ luisracosta-hq/
 
 ### Deployment
 - `packages/website/` → deploys to luisracosta.com (GitHub Pages, CNAME configured)
-- `packages/hq/` → deploys to Perplexity Computer hosted URL (password: even2026)
+- `packages/hq/` → deploys to hq.luisracosta.com (password-gated)
 - Article previews live in `packages/hq/preview/` for internal review before publishing
 
 ### State Management
