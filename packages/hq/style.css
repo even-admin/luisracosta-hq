@@ -101,15 +101,6 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .header-title { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; color: var(--text); white-space: nowrap; }
 .header-subtitle { font-family: var(--font-body); font-size: 12px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-/* Back button */
-.back-btn {
-  background: none; border: 1px solid var(--border); border-radius: var(--radius-xs);
-  padding: 6px; cursor: pointer; color: var(--text-muted);
-  display: flex; align-items: center; justify-content: center;
-  transition: color var(--transition), border-color var(--transition); flex-shrink: 0;
-}
-.back-btn:hover { color: var(--text); border-color: var(--border-light); }
-
 /* Tab Switcher */
 .tab-switcher {
   display: flex; background: var(--bg); border: 1px solid var(--border);
@@ -222,14 +213,30 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 }
 
 /* ============================================
-   FOCUS MODE
+   INLINE EXPANSION (replaces old focus mode)
    ============================================ */
 
-.focus-mode { animation: fadeIn 0.3s ease; }
+.project-card-summary { cursor: pointer; }
 
-.focus-project-name {
-  font-family: var(--font-display); font-size: 26px; font-weight: 400;
-  color: var(--text); margin-bottom: 4px;
+.project-card.expanded {
+  border-color: var(--border-light);
+}
+
+.project-card.dimmed {
+  opacity: 0.4;
+  transition: opacity var(--transition);
+}
+
+.project-expanded {
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+  padding-top: 20px;
+  animation: fadeIn 0.25s ease;
+}
+
+.project-card-deadline {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-faint);
+  text-transform: uppercase; letter-spacing: 0.05em;
 }
 
 .focus-block-name {
@@ -238,7 +245,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
   margin-bottom: 16px;
 }
 
-.focus-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 32px; }
+.focus-progress { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
 .focus-bar { flex: 1; height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
 .focus-bar-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.3s ease; }
 .focus-bar-text { font-family: var(--font-mono); font-size: 12px; color: var(--text-muted); white-space: nowrap; }
@@ -402,6 +409,82 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .platform-action { font-size: 12px; color: var(--text-muted); }
 .platform-arrow { color: var(--text-faint); flex-shrink: 0; transition: color var(--transition); }
 .platform-card:hover .platform-arrow { color: var(--text); }
+
+/* ============================================
+   SOCIALS — KPIs
+   ============================================ */
+
+.kpi-grid {
+  display: flex; gap: 12px; overflow-x: auto;
+  -webkit-overflow-scrolling: touch; padding-bottom: 4px;
+}
+.kpi-card {
+  flex: 1; min-width: 100px;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.kpi-value {
+  font-family: var(--font-mono); font-size: 22px; font-weight: 700; color: var(--text);
+}
+.kpi-label {
+  font-family: var(--font-mono); font-size: 10px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ============================================
+   SOCIALS — REPLY QUEUE
+   ============================================ */
+
+.reply-queue { display: flex; flex-direction: column; gap: 12px; }
+
+.reply-empty {
+  font-family: var(--font-mono); font-size: 13px; color: var(--text-faint);
+  padding: 32px; text-align: center;
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+}
+
+.reply-card {
+  background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 20px; display: flex; flex-direction: column; gap: 12px;
+}
+
+.reply-card-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+
+.reply-to {
+  font-family: var(--font-mono); font-size: 13px; font-weight: 600; color: var(--text);
+}
+
+.reply-link-btn {
+  display: flex; align-items: center; gap: 4px;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  color: var(--text-muted); text-decoration: none;
+  padding: 4px 10px; border: 1px solid var(--border); border-radius: var(--radius-xs);
+  transition: all var(--transition); white-space: nowrap;
+}
+.reply-link-btn:hover { color: var(--text); border-color: var(--border-light); }
+
+.reply-context {
+  font-size: 12px; color: var(--text-muted); line-height: 1.5;
+  padding: 10px 12px; background: var(--bg); border-radius: var(--radius-sm);
+  border-left: 2px solid var(--border);
+}
+
+.reply-draft {
+  font-size: 14px; color: var(--text); line-height: 1.6;
+}
+
+.reply-copy-btn {
+  align-self: flex-start;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.05em;
+  background: var(--accent); color: var(--bg); border: none;
+  padding: 8px 20px; border-radius: var(--radius-sm); cursor: pointer;
+  transition: opacity var(--transition);
+}
+.reply-copy-btn:hover { opacity: 0.8; }
+.reply-copy-btn.copied { background: var(--dot-green); }
 
 /* ============================================
    NUMBERS FOOTER
