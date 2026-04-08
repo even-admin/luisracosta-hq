@@ -60,7 +60,7 @@
     "runway": "—"
   },
   "finance": {
-    "seed_version": 2,
+    "seed_version": 3,
     "revenue": [
       {"source": "Dr. Ramírez", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false}
     ],

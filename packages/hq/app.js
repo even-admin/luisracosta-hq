@@ -699,6 +699,7 @@
 
   var INCOME_KEY = 'hq_income';
   var EXPENSE_KEY = 'hq_expenses';
+  var TRIALS_KEY = 'hq_trials';
   var USD_MXN = 17; // approximate rate, update as needed
 
   function loadLedger(key) {
@@ -739,6 +740,17 @@
         });
       });
       saveLedger(EXPENSE_KEY, expenses);
+
+      var trials = [];
+      if (data.finance.free_trials) {
+        data.finance.free_trials.forEach(function(t) {
+          trials.push({
+            id: 't_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
+            vendor: t.vendor, since: t.since, note: t.note || ''
+          });
+        });
+      }
+      saveLedger(TRIALS_KEY, trials);
       ls.setItem(SEED_VERSION_KEY, String(currentSeed));
     }
   }
@@ -1007,9 +1019,9 @@
 
   function renderFreeTrials() {
     var el = document.getElementById('free-trials');
-    if (!el || !data || !data.finance || !data.finance.free_trials) { if (el) el.innerHTML = ''; return; }
-    var trials = data.finance.free_trials;
-    if (trials.length === 0) { el.innerHTML = '<div class="ledger-empty">No free trials active.</div>'; return; }
+    if (!el) return;
+    var trials = loadLedger(TRIALS_KEY);
+    if (trials.length === 0) { el.innerHTML = '<div class="ledger-empty">No free trials being watched.</div>'; return; }
 
     el.innerHTML = trials.map(function(t) {
       return '<div class="trial-item">' +
@@ -1020,9 +1032,20 @@
             '<div class="trial-note">' + esc(t.note) + '</div>' +
           '</div>' +
         '</div>' +
-        '<span class="trial-since">since ' + esc(t.since) + '</span>' +
+        '<div class="trial-right">' +
+          '<span class="trial-since">since ' + esc(t.since) + '</span>' +
+          '<button class="ledger-delete" data-id="' + t.id + '" title="Remove">&times;</button>' +
+        '</div>' +
       '</div>';
     }).join('');
+
+    el.querySelectorAll('.ledger-delete').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var items = loadLedger(TRIALS_KEY).filter(function(t) { return t.id !== btn.getAttribute('data-id'); });
+        saveLedger(TRIALS_KEY, items);
+        renderFreeTrials();
+      });
+    });
   }
 
   function renderFinanceTax() {
@@ -1195,6 +1218,33 @@
       saveLedger(EXPENSE_KEY, items);
       resetExpenseForm();
       refreshFinanceViews();
+    });
+
+    // ── Free Trials form ──
+    var trialFormEl = document.getElementById('trial-form');
+    document.getElementById('add-trial-btn').addEventListener('click', function() {
+      trialFormEl.classList.toggle('hidden');
+      if (!trialFormEl.classList.contains('hidden')) {
+        document.getElementById('trial-since').value = formatISO(new Date());
+        document.getElementById('trial-vendor').value = '';
+        document.getElementById('trial-note').value = '';
+        document.getElementById('trial-vendor').focus();
+      }
+    });
+    document.getElementById('cancel-trial-btn').addEventListener('click', function() { trialFormEl.classList.add('hidden'); });
+    document.getElementById('save-trial-btn').addEventListener('click', function() {
+      var vendor = document.getElementById('trial-vendor').value;
+      if (!vendor) return;
+      var items = loadLedger(TRIALS_KEY);
+      items.push({
+        id: 't_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
+        vendor: vendor,
+        since: document.getElementById('trial-since').value || formatISO(new Date()),
+        note: document.getElementById('trial-note').value || ''
+      });
+      saveLedger(TRIALS_KEY, items);
+      trialFormEl.classList.add('hidden');
+      renderFreeTrials();
     });
   }
 

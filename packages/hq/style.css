@@ -722,6 +722,7 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 }
 .trial-vendor { font-size: 14px; font-weight: 500; color: var(--text); }
 .trial-note { font-size: 12px; color: var(--text-muted); }
+.trial-right { display: flex; align-items: center; gap: 8px; }
 .trial-since { font-size: 11px; color: var(--text-faint); font-family: var(--font-mono); white-space: nowrap; }
 
 /* ── Tax Calendar ── */
