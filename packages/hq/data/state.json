@@ -1,5 +1,6 @@
 {
-  "last_updated": "2026-04-05T12:00:00-06:00",
+  "schema_version": 2,
+  "last_updated": "2026-04-08T15:00:00-06:00",
   "mission": {
     "target": "Close a $50K-100K MXN project",
     "deadline": "2026-05-05",
@@ -55,7 +56,33 @@
   "numbers": {
     "mrr": "$24K MXN",
     "pipeline_total": "$350K MXN",
-    "costs": "~$532 USD/mo"
+    "costs": "~$532 USD/mo",
+    "runway": "—"
+  },
+  "finance": {
+    "revenue": [
+      {"source": "Dr. Ramírez", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false},
+      {"source": "Servimueble", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false}
+    ],
+    "expenses": [
+      {"item": "Perplexity Max", "amount": 200, "currency": "USD", "category": "tools"},
+      {"item": "Claude Max", "amount": 200, "currency": "USD", "category": "tools"},
+      {"item": "GoHighLevel", "amount": 97, "currency": "USD", "category": "tools"},
+      {"item": "Google Workspace", "amount": 7, "currency": "USD", "category": "tools"},
+      {"item": "X Premium", "amount": 8, "currency": "USD", "category": "tools"},
+      {"item": "TrainingPeaks", "amount": 20, "currency": "USD", "category": "personal"}
+    ],
+    "mrr_mxn": 24000,
+    "costs_usd": 532,
+    "runway_months": null,
+    "tax": {
+      "regime": "Persona Física con Actividad Empresarial",
+      "next_declaration": "2026-05-17",
+      "iva_rate": 0.16,
+      "cfdi_status": "not_started",
+      "sat_notes": "Setup CFDI before closing $50K+ contracts"
+    },
+    "last_reconciled": null
   },
   "socials": {
     "x": {
@@ -66,6 +93,14 @@
         "tweets": 7,
         "impressions": "—",
         "profile_visits": "—"
+      }
+    },
+    "linkedin": {
+      "handle": "/luisracosta",
+      "kpis": {
+        "connections": "—",
+        "posts": "—",
+        "impressions": "—"
       }
     },
     "reply_queue": [
@@ -100,10 +135,16 @@
     ]
   },
   "security": {
+    "posture_score": 72,
     "last_audit": "2026-04-07",
     "next_audit": "2026-05-07",
     "status": "healthy",
     "summary": "17 findings — 12 fixed, 3 pending, 2 accepted risk",
+    "mcp_health": [
+      {"name": "xmcp", "status": "unknown", "checked": null},
+      {"name": "linkedin", "status": "unknown", "checked": null},
+      {"name": "slack", "status": "unknown", "checked": null}
+    ],
     "todos": [
       {"id": "s1", "task": "Rotate LinkedIn client secret via Developer Portal", "urgency": "critical", "done": false},
       {"id": "s2", "task": "Move LinkedIn secret to .env (quit Desktop, edit config, relaunch)", "urgency": "high", "done": false},
@@ -111,5 +152,8 @@
       {"id": "s4", "task": "Configure git credential helper (osxkeychain)", "urgency": "medium", "done": false},
       {"id": "s5", "task": "Move security hook debug log out of /tmp", "urgency": "low", "done": false}
     ]
-  }
+  },
+  "agent_log": [
+    {"agent": "system", "action": "Schema migrated to v2 — added finance, agent_log, enriched security", "timestamp": "2026-04-08T15:00:00-06:00"}
+  ]
 }

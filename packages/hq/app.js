@@ -91,7 +91,31 @@
     loadTaskOverrides();
     initTheme();
     initTabs();
+    initSync();
     loadData();
+  }
+
+  // ── Sync Button ──────────────────────────
+
+  function initSync() {
+    var btn = document.getElementById('sync-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      btn.classList.add('syncing');
+      btn.classList.remove('synced');
+      fetch('data/state.json?t=' + Date.now())
+        .then(function(r) { return r.json(); })
+        .then(function(newData) {
+          data = newData;
+          renderAll();
+          btn.classList.remove('syncing');
+          btn.classList.add('synced');
+          setTimeout(function() { btn.classList.remove('synced'); }, 2000);
+        })
+        .catch(function() {
+          btn.classList.remove('syncing');
+        });
+    });
   }
 
   async function loadData() {
@@ -114,7 +138,9 @@
     renderNumbers();
     renderDashboard();
     renderSocials();
+    renderFinance();
     renderSecurity();
+    renderActivity();
   }
 
   // ── ops.md Parser ─────────────────────────
@@ -220,13 +246,15 @@
     });
   }
 
+  var ALL_TABS = ['blocks', 'dashboard', 'socials', 'finance', 'security', 'activity'];
+
   function switchTab(tab) {
     document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
     document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
-    document.getElementById('view-blocks').classList.toggle('hidden', tab !== 'blocks');
-    document.getElementById('view-dashboard').classList.toggle('hidden', tab !== 'dashboard');
-    document.getElementById('view-socials').classList.toggle('hidden', tab !== 'socials');
-    document.getElementById('view-security').classList.toggle('hidden', tab !== 'security');
+    ALL_TABS.forEach(function(t) {
+      var el = document.getElementById('view-' + t);
+      if (el) el.classList.toggle('hidden', t !== tab);
+    });
   }
 
   // ── Mission Hero ──────────────────────────
@@ -509,6 +537,7 @@
     document.getElementById('num-mrr').textContent = data.numbers.mrr;
     document.getElementById('num-pipeline').textContent = data.numbers.pipeline_total;
     document.getElementById('num-costs').textContent = data.numbers.costs;
+    document.getElementById('num-runway').textContent = data.numbers.runway || '—';
 
     var deadline = new Date(data.mission.deadline + 'T23:59:59');
     var daysLeft = Math.max(0, Math.ceil((deadline - new Date()) / (1000 * 60 * 60 * 24)));
@@ -520,6 +549,7 @@
   function renderSocials() {
     if (!data || !data.socials) return;
     renderSocialsKPIs();
+    renderLinkedInKPIs();
     renderReplyQueue();
   }
 
@@ -606,6 +636,8 @@
   function renderSecurity() {
     if (!data || !data.security) return;
     loadSecOverrides();
+    renderPostureScore();
+    renderMCPHealth();
     var sec = data.security;
 
     // Status card
@@ -661,6 +693,205 @@
         renderSecurity();
       });
     });
+  }
+
+  // ── Finance ───────────────────────────────
+
+  function renderFinance() {
+    if (!data || !data.finance) return;
+    renderFinanceSummary();
+    renderFinanceRevenue();
+    renderFinanceExpenses();
+    renderFinanceTax();
+  }
+
+  function renderFinanceSummary() {
+    var el = document.getElementById('finance-summary');
+    if (!el) return;
+    var f = data.finance;
+    var mrrFormatted = '$' + (f.mrr_mxn / 1000).toFixed(0) + 'K MXN';
+    var costsFormatted = '$' + f.costs_usd + ' USD';
+    var netMxn = f.mrr_mxn - (f.costs_usd * 17); // approximate USD→MXN
+    var netFormatted = '$' + (netMxn / 1000).toFixed(1) + 'K MXN';
+    var runway = f.runway_months ? f.runway_months + ' mo' : '—';
+
+    var cards = [
+      { label: 'MRR', value: mrrFormatted },
+      { label: 'Monthly Costs', value: costsFormatted },
+      { label: 'Net (approx)', value: netFormatted },
+      { label: 'Runway', value: runway }
+    ];
+
+    el.innerHTML = cards.map(function(c) {
+      return '<div class="finance-card">' +
+        '<span class="finance-card-value">' + esc(c.value) + '</span>' +
+        '<span class="finance-card-label">' + esc(c.label) + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderFinanceRevenue() {
+    var el = document.getElementById('finance-revenue');
+    if (!el || !data.finance.revenue) return;
+
+    el.innerHTML = data.finance.revenue.map(function(r) {
+      var cfdiCls = r.cfdi ? 'active' : 'inactive';
+      var cfdiLabel = r.cfdi ? 'CFDI' : 'No CFDI';
+      return '<div class="revenue-row">' +
+        '<span class="revenue-source">' + esc(r.source) + '</span>' +
+        '<div class="revenue-right">' +
+          '<span class="cfdi-badge ' + cfdiCls + '">' + cfdiLabel + '</span>' +
+          '<span class="revenue-type">' + esc(r.type) + '</span>' +
+          '<span class="revenue-amount">$' + r.amount.toLocaleString() + ' ' + esc(r.currency) + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderFinanceExpenses() {
+    var el = document.getElementById('finance-expenses');
+    if (!el || !data.finance.expenses) return;
+
+    var sorted = data.finance.expenses.slice().sort(function(a, b) { return b.amount - a.amount; });
+
+    el.innerHTML = sorted.map(function(e) {
+      return '<div class="expense-row">' +
+        '<span class="expense-item">' + esc(e.item) + '</span>' +
+        '<div class="expense-right">' +
+          '<span class="expense-category">' + esc(e.category) + '</span>' +
+          '<span class="expense-amount">$' + e.amount + ' ' + esc(e.currency) + '</span>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  }
+
+  function renderFinanceTax() {
+    var el = document.getElementById('finance-tax');
+    if (!el || !data.finance.tax) return;
+    var t = data.finance.tax;
+
+    var rows = [
+      { label: 'Regime', value: t.regime },
+      { label: 'Next Declaration', value: t.next_declaration },
+      { label: 'IVA Rate', value: (t.iva_rate * 100) + '%' },
+      { label: 'CFDI Status', value: t.cfdi_status.replace(/_/g, ' ') }
+    ];
+
+    var html = rows.map(function(r) {
+      return '<div class="tax-row">' +
+        '<span class="tax-label">' + esc(r.label) + '</span>' +
+        '<span class="tax-value">' + esc(r.value) + '</span>' +
+      '</div>';
+    }).join('');
+
+    // Alert if next declaration < 14 days
+    if (t.next_declaration) {
+      var declDate = new Date(t.next_declaration + 'T23:59:59');
+      var daysUntil = Math.ceil((declDate - new Date()) / (1000 * 60 * 60 * 24));
+      if (daysUntil <= 14 && daysUntil > 0) {
+        html += '<div class="tax-alert">SAT declaration due in ' + daysUntil + ' days (' + t.next_declaration + ')</div>';
+      }
+    }
+
+    if (t.sat_notes) {
+      html += '<div class="tax-row"><span class="tax-label">Note</span><span class="tax-value">' + esc(t.sat_notes) + '</span></div>';
+    }
+
+    el.innerHTML = html;
+  }
+
+  // ── LinkedIn KPIs ────────────────────────
+
+  function renderLinkedInKPIs() {
+    var el = document.getElementById('linkedin-kpis');
+    if (!el || !data.socials || !data.socials.linkedin) return;
+    var k = data.socials.linkedin.kpis;
+
+    var items = [
+      { label: 'Connections', value: k.connections },
+      { label: 'Posts', value: k.posts },
+      { label: 'Impressions', value: k.impressions }
+    ];
+
+    el.innerHTML = '<div class="kpi-grid">' + items.map(function(item) {
+      return '<div class="kpi-card">' +
+        '<span class="kpi-value">' + esc(String(item.value)) + '</span>' +
+        '<span class="kpi-label">' + esc(item.label) + '</span>' +
+      '</div>';
+    }).join('') + '</div>';
+  }
+
+  // ── Posture Score ────────────────────────
+
+  function renderPostureScore() {
+    var el = document.getElementById('posture-score');
+    if (!el || !data.security || data.security.posture_score == null) return;
+    var score = data.security.posture_score;
+    var color = score >= 80 ? 'var(--dot-green)' : score >= 50 ? 'var(--dot-yellow)' : 'var(--dot-red)';
+
+    el.innerHTML =
+      '<span class="posture-number" style="color:' + color + '">' + score + '</span>' +
+      '<div style="flex:1;display:flex;flex-direction:column;gap:4px">' +
+        '<div class="posture-bar-wrap">' +
+          '<div class="posture-bar-fill" style="width:' + score + '%;background:' + color + '"></div>' +
+        '</div>' +
+        '<span class="posture-label">' + (score >= 80 ? 'Strong' : score >= 50 ? 'Needs Attention' : 'Critical') + '</span>' +
+      '</div>';
+  }
+
+  // ── MCP Health ───────────────────────────
+
+  function renderMCPHealth() {
+    var el = document.getElementById('mcp-health');
+    if (!el || !data.security || !data.security.mcp_health) return;
+
+    el.innerHTML = data.security.mcp_health.map(function(m) {
+      var dotColor = m.status === 'running' ? 'var(--dot-green)' : m.status === 'unknown' ? 'var(--dot-yellow)' : 'var(--dot-red)';
+      return '<div class="mcp-card">' +
+        '<span class="mcp-dot" style="background:' + dotColor + '"></span>' +
+        '<span class="mcp-name">' + esc(m.name) + '</span>' +
+        '<span class="mcp-status">' + esc(m.status) + '</span>' +
+      '</div>';
+    }).join('');
+  }
+
+  // ── Activity Log ─────────────────────────
+
+  function renderActivity() {
+    var el = document.getElementById('agent-activity');
+    if (!el) return;
+    var log = (data && data.agent_log) ? data.agent_log : [];
+
+    if (log.length === 0) {
+      el.innerHTML = '<div class="activity-empty">No agent activity yet. Invoke an agent to see updates here.</div>';
+      return;
+    }
+
+    el.innerHTML = log.map(function(entry) {
+      var agentClass = entry.agent || 'system';
+      var timeStr = '';
+      if (entry.timestamp) {
+        var d = new Date(entry.timestamp);
+        var now = new Date();
+        var diffMs = now - d;
+        var diffMin = Math.floor(diffMs / 60000);
+        if (diffMin < 1) timeStr = 'just now';
+        else if (diffMin < 60) timeStr = diffMin + 'm ago';
+        else if (diffMin < 1440) timeStr = Math.floor(diffMin / 60) + 'h ago';
+        else timeStr = Math.floor(diffMin / 1440) + 'd ago';
+      }
+
+      return '<div class="activity-item">' +
+        '<span class="activity-dot ' + esc(agentClass) + '"></span>' +
+        '<div class="activity-body">' +
+          '<div class="activity-header">' +
+            '<span class="activity-agent">' + esc(entry.agent) + '</span>' +
+            '<span class="activity-time">' + esc(timeStr) + '</span>' +
+          '</div>' +
+          '<div class="activity-action">' + esc(entry.action) + '</div>' +
+        '</div>' +
+      '</div>';
+    }).join('');
   }
 
   // ── Utilities ─────────────────────────────

@@ -41,8 +41,13 @@
             <button class="tab-btn active" data-tab="blocks">Blocks</button>
             <button class="tab-btn" data-tab="dashboard">Dashboard</button>
             <button class="tab-btn" data-tab="socials">Socials</button>
+            <button class="tab-btn" data-tab="finance">Finance</button>
             <button class="tab-btn" data-tab="security">Security</button>
+            <button class="tab-btn" data-tab="activity">Activity</button>
           </div>
+          <button id="sync-btn" class="sync-btn" aria-label="Sync data">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+          </button>
           <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
             <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
             <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
@@ -69,6 +74,12 @@
       <section class="dash-section">
         <h2 class="dash-title">X — @luisracosta_</h2>
         <div id="socials-kpis" class="socials-kpis"></div>
+      </section>
+
+      <!-- LinkedIn KPIs -->
+      <section class="dash-section">
+        <h2 class="dash-title">LinkedIn — /luisracosta</h2>
+        <div id="linkedin-kpis" class="socials-kpis"></div>
       </section>
 
       <!-- Reply Queue -->
@@ -104,13 +115,49 @@
 
     </main>
 
+    <!-- ====== FINANCE TAB ====== -->
+    <main id="view-finance" class="main hidden">
+
+      <!-- Finance Summary -->
+      <section class="dash-section">
+        <h2 class="dash-title">Financial Overview</h2>
+        <div id="finance-summary" class="finance-summary"></div>
+      </section>
+
+      <!-- Revenue Streams -->
+      <section class="dash-section">
+        <h2 class="dash-title">Revenue Streams</h2>
+        <div id="finance-revenue" class="finance-revenue"></div>
+      </section>
+
+      <!-- Expenses -->
+      <section class="dash-section">
+        <h2 class="dash-title">Monthly Expenses</h2>
+        <div id="finance-expenses" class="finance-expenses"></div>
+      </section>
+
+      <!-- Tax Compliance -->
+      <section class="dash-section">
+        <h2 class="dash-title">Tax Compliance</h2>
+        <div id="finance-tax" class="finance-tax-card"></div>
+      </section>
+
+    </main>
+
     <!-- ====== SECURITY TAB ====== -->
     <main id="view-security" class="main hidden">
 
-      <!-- Status -->
+      <!-- Posture Score + Status -->
       <section class="dash-section">
         <h2 class="dash-title">Security Posture</h2>
+        <div id="posture-score" class="posture-score"></div>
         <div id="security-status" class="security-status-card"></div>
+      </section>
+
+      <!-- MCP Health -->
+      <section class="dash-section">
+        <h2 class="dash-title">MCP Health</h2>
+        <div id="mcp-health" class="mcp-health-grid"></div>
       </section>
 
       <!-- Remaining Tasks -->
@@ -121,12 +168,23 @@
 
     </main>
 
+    <!-- ====== ACTIVITY TAB ====== -->
+    <main id="view-activity" class="main hidden">
+
+      <section class="dash-section">
+        <h2 class="dash-title">Agent Activity</h2>
+        <div id="agent-activity" class="agent-activity"></div>
+      </section>
+
+    </main>
+
     <!-- Numbers Footer -->
     <footer id="numbers-footer" class="numbers-footer">
       <div class="numbers-inner">
         <div class="number-item"><span class="number-label">MRR</span><span class="number-value" id="num-mrr"></span></div>
         <div class="number-item"><span class="number-label">Pipeline</span><span class="number-value" id="num-pipeline"></span></div>
         <div class="number-item"><span class="number-label">Costs</span><span class="number-value" id="num-costs"></span></div>
+        <div class="number-item"><span class="number-label">Runway</span><span class="number-value" id="num-runway"></span></div>
         <div class="number-item"><span class="number-label">Days Left</span><span class="number-value" id="num-days"></span></div>
       </div>
     </footer>
