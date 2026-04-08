@@ -628,7 +628,9 @@
     var todosEl = document.getElementById('security-todos');
     var todos = (sec.todos || []).slice().sort(function(a, b) {
       var order = { critical: 0, high: 1, medium: 2, low: 3 };
-      return (order[a.urgency] || 4) - (order[b.urgency] || 4);
+      var ai = a.urgency in order ? order[a.urgency] : 4;
+      var bi = b.urgency in order ? order[b.urgency] : 4;
+      return ai - bi;
     });
 
     if (todos.length === 0) {
