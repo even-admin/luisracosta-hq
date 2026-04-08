@@ -54,26 +54,35 @@
     {"name": "Fractional Jobs", "action": "List yourself as fCTO", "url": "https://fractionaljobs.io"}
   ],
   "numbers": {
-    "mrr": "$24K MXN",
+    "mrr": "$12K MXN",
     "pipeline_total": "$350K MXN",
-    "costs": "~$532 USD/mo",
+    "costs": "$5.7K MXN/mo",
     "runway": "—"
   },
   "finance": {
+    "seed_version": 2,
     "revenue": [
-      {"source": "Dr. Ramírez", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false},
-      {"source": "Servimueble", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false}
+      {"source": "Dr. Ramírez", "amount": 12000, "currency": "MXN", "type": "retainer", "cfdi": false}
     ],
     "expenses": [
-      {"item": "Perplexity Max", "amount": 200, "currency": "USD", "category": "tools"},
-      {"item": "Claude Max", "amount": 200, "currency": "USD", "category": "tools"},
-      {"item": "GoHighLevel", "amount": 97, "currency": "USD", "category": "tools"},
-      {"item": "Google Workspace", "amount": 7, "currency": "USD", "category": "tools"},
-      {"item": "X Premium", "amount": 8, "currency": "USD", "category": "tools"},
-      {"item": "TrainingPeaks", "amount": 20, "currency": "USD", "category": "personal"}
+      {"item": "Claude.Ai Subscription", "amount": 3562.34, "currency": "MXN", "date": "2026-04-04", "category": "tools"},
+      {"item": "Www.Perplexity.Ai", "amount": 890.59, "currency": "MXN", "date": "2026-04-04", "category": "tools"},
+      {"item": "Www.Perplexity.Ai", "amount": 450.08, "currency": "MXN", "date": "2026-04-01", "category": "tools"},
+      {"item": "Www.Perplexity.Ai", "amount": 445.29, "currency": "MXN", "date": "2026-04-05", "category": "tools"},
+      {"item": "X Developer Platform", "amount": 92.52, "currency": "MXN", "date": "2026-04-06", "category": "tools"},
+      {"item": "X Developer Platform", "amount": 92.51, "currency": "MXN", "date": "2026-04-07", "category": "tools"},
+      {"item": "Cal.Com", "amount": 92.41, "currency": "MXN", "date": "2026-04-06", "category": "tools"},
+      {"item": "Github, Inc.", "amount": 71.25, "currency": "MXN", "date": "2026-04-07", "category": "tools"}
     ],
-    "mrr_mxn": 24000,
-    "costs_usd": 532,
+    "free_trials": [
+      {"vendor": "Tailscale Us Inc.", "since": "2026-04-05", "note": "VPN/networking — watch for charges"},
+      {"vendor": "Google Temporary Hold", "since": "2026-04-05", "note": "Temp auth hold — should clear"},
+      {"vendor": "LinkedIn", "since": "2026-04-06", "note": "Premium trial or API"},
+      {"vendor": "Cal.Com", "since": "2026-04-06", "note": "2 x $0.00 charges — trial active"},
+      {"vendor": "Github, Inc.", "since": "2026-04-07", "note": "$0.00 hold — free tier or trial"}
+    ],
+    "mrr_mxn": 12000,
+    "costs_mxn": 5696.99,
     "runway_months": null,
     "tax": {
       "regime": "Persona Física con Actividad Empresarial",
@@ -82,7 +91,7 @@
       "cfdi_status": "not_started",
       "sat_notes": "Setup CFDI before closing $50K+ contracts"
     },
-    "last_reconciled": null
+    "last_reconciled": "2026-04-08"
   },
   "socials": {
     "x": {

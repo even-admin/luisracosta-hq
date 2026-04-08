@@ -710,10 +710,17 @@
     try { ls.setItem(key, JSON.stringify(items)); } catch(e) {}
   }
 
+  var SEED_VERSION_KEY = 'hq_finance_seed_v';
+
   function seedDefaults() {
-    var income = loadLedger(INCOME_KEY);
-    var expenses = loadLedger(EXPENSE_KEY);
-    if (income.length === 0 && data && data.finance && data.finance.revenue) {
+    if (!data || !data.finance) return;
+    var ls = _ls(); if (!ls) return;
+    var currentSeed = data.finance.seed_version || 1;
+    var storedSeed = parseInt(ls.getItem(SEED_VERSION_KEY) || '0', 10);
+
+    // Re-seed if version changed (wipes old data, replaces with state.json)
+    if (storedSeed < currentSeed) {
+      var income = [];
       data.finance.revenue.forEach(function(r) {
         income.push({
           id: 'i_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
@@ -722,16 +729,17 @@
         });
       });
       saveLedger(INCOME_KEY, income);
-    }
-    if (expenses.length === 0 && data && data.finance && data.finance.expenses) {
+
+      var expenses = [];
       data.finance.expenses.forEach(function(e) {
         expenses.push({
           id: 'e_' + Date.now() + '_' + Math.random().toString(36).slice(2,6),
-          date: '2026-04-01', vendor: e.item, desc: e.item,
+          date: e.date || '2026-04-01', vendor: e.item, desc: e.item,
           amount: e.amount, currency: e.currency, category: e.category, deductible: true
         });
       });
       saveLedger(EXPENSE_KEY, expenses);
+      ls.setItem(SEED_VERSION_KEY, String(currentSeed));
     }
   }
 
@@ -741,6 +749,7 @@
     renderIncomeTable();
     renderExpenseTable();
     renderMonthlySummary();
+    renderFreeTrials();
     renderFinanceTax();
     initFinanceForms();
   }
@@ -998,6 +1007,26 @@
     '</tr>';
     html += '</tbody></table>';
     el.innerHTML = html;
+  }
+
+  function renderFreeTrials() {
+    var el = document.getElementById('free-trials');
+    if (!el || !data || !data.finance || !data.finance.free_trials) { if (el) el.innerHTML = ''; return; }
+    var trials = data.finance.free_trials;
+    if (trials.length === 0) { el.innerHTML = '<div class="ledger-empty">No free trials active.</div>'; return; }
+
+    el.innerHTML = trials.map(function(t) {
+      return '<div class="trial-item">' +
+        '<div class="trial-left">' +
+          '<span class="trial-dot"></span>' +
+          '<div>' +
+            '<div class="trial-vendor">' + esc(t.vendor) + '</div>' +
+            '<div class="trial-note">' + esc(t.note) + '</div>' +
+          '</div>' +
+        '</div>' +
+        '<span class="trial-since">since ' + esc(t.since) + '</span>' +
+      '</div>';
+    }).join('');
   }
 
   function renderFinanceTax() {

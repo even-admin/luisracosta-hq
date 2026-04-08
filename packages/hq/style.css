@@ -709,6 +709,21 @@ body { background: var(--bg); color: var(--text); font-family: var(--font-body);
 .net-positive { color: var(--dot-green); }
 .net-negative { color: var(--dot-red); }
 
+/* ── Free Trials Watchlist ── */
+.free-trials-list { display: flex; flex-direction: column; gap: 0; }
+.trial-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+}
+.trial-item:last-child { border-bottom: none; }
+.trial-left { display: flex; align-items: center; gap: 10px; }
+.trial-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: var(--dot-yellow); flex-shrink: 0;
+}
+.trial-vendor { font-size: 14px; font-weight: 500; color: var(--text); }
+.trial-note { font-size: 12px; color: var(--text-muted); }
+.trial-since { font-size: 11px; color: var(--text-faint); font-family: var(--font-mono); white-space: nowrap; }
+
 /* ── Tax Calendar ── */
 .finance-tax-card {
   background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius);
